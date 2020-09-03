@@ -1,33 +1,32 @@
 ﻿using System;
-struct Person
+
+namespace npoeicr.List_Value_Types
 {
-  public string firstName;
-  public string lastName;
-  public int age;
-  public Person(string _firstName, string _lastName, int _age)
-  {
-    firstName = _firstName;
-    lastName = _lastName; age = _age;
-  }
-  public override string ToString()
-  {
-    return firstName + " " + lastName + ", age " + age;
-  }
-  
-}
-
-
-namespace CreateStruct
-{
-
   class Program
   {
-    
-
+     
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
-      Person p = new Person("Tony", "Allen", 32); Console.WriteLine(p);
+    SByte a = 0;
+    Byte b = 0;
+    Int16 c = 0;
+    Int32 d = 0;
+    Int64 e = 0;
+    string s = "";
+    Exception ex = new Exception();
+    object[] types = { a, b, c, d, e, s, ex };
+      foreach (object o in types)
+      {
+        string type;
+        if (o.GetType().IsValueType) type = "Value type";
+        else
+          type = "Reference Type";
+        Console.WriteLine("{0}: {1}", o.GetType(), type);
+      }
+
+      {
+        Console.WriteLine("Hello World!");
+      }
     }
   }
 }
